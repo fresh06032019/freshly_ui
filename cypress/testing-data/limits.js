@@ -32,30 +32,50 @@ class Limits {
                 meals: [],
             },
             deliveryOptions: {
-                deliveryPostalCode: "",
-                deliveryState: "",
-                deliveryCity: "",
-                deliveryAddressLine1: "",
-                deliveryAddressLine2: "",
-                deliveryPhone: "",
+                deliveryPostalCode: null,
+                deliveryState: null,
+                deliveryCity: null,
+                deliveryAddressLine1: null,
+                deliveryAddressLine2: null,
+                deliveryPhone: null,
                 isReceiveSms: false
             },
             paymentsOptions: {
                 payPalOptions: {},
-                creditCardOptions: {
-                    cardNumber: "",
-                    expirationMonth: "",
-                    CVC: ""
-                }
+                creditCards: [
+                    {
+                        manufacturer: "VISA",
+                        cardNumber: "",
+                        expirationMonth: "",
+                        CVC: ""
+                    },
+                    {
+                        manufacturer: "MasterCard" ,
+                        cardNumber: "",
+                        expirationMonth: "",
+                        CVC: ""
+                    },
+                    {
+                        manufacturer: "American Express" ,
+                        cardNumber: "",
+                        expirationMonth: "",
+                        CVC: ""
+                    },
+                    {
+                        manufacturer: "DISCOVER" ,
+                        cardNumber: "",
+                        expirationMonth: "",
+                        CVC: ""
+                    },
+                ]
             },
             billingOptions: {
                 isBillingAddressSameAsDelivery: true,
-                deliveryPostalCode: "",
-                deliveryState: "",
-                deliveryCity: "",
-                deliveryAddressLine1: "",
-                deliveryAddressLine2: "",
-                deliveryPhone: ""
+                deliveryPostalCode: null,
+                deliveryState: null,
+                deliveryCity: null,
+                deliveryAddressLine1: null,
+                deliveryAddressLine2: null,
             }
         }
     }
