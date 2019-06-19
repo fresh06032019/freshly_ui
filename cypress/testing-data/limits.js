@@ -32,7 +32,7 @@ class Limits {
                 meals: [],
             },
             deliveryOptions: {
-                deliveryZIP: "",
+                deliveryPostalCode: "",
                 deliveryState: "",
                 deliveryCity: "",
                 deliveryAddressLine1: "",
@@ -50,13 +50,12 @@ class Limits {
             },
             billingOptions: {
                 isBillingAddressSameAsDelivery: true,
-                deliveryZIP: "",
+                deliveryPostalCode: "",
                 deliveryState: "",
                 deliveryCity: "",
                 deliveryAddressLine1: "",
                 deliveryAddressLine2: "",
-                deliveryPhone: "",
-                isReceiveSms: false
+                deliveryPhone: ""
             }
         }
     }
