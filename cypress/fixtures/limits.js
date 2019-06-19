@@ -1,81 +1,65 @@
-export const limits = {
-    userCredentials:
-        {
-            email: {
-                nonRegisteredValid: "",
-                invalidEmpty: "",
-                invalidWithoutDomain: "",
-                invalidWithoutName: "",
-                invalidWithoutAtSymbol: "",
-            },
-            ZIP: {
-
-            },
-            plan: {
-
-            },
-            deliveryDay: {
-
-            },
-            password: {
-                validMin: "",
-                validDefault: "",
-                invalidTooShort: "",
-                invalidTooLong: "",
-            },
-            firstName: {
-
-            },
-            lastName: {
-
-            },
-            addressLine1: {
-
-            },
-            addressLine2: {
-
-            },
-            city: {
-
-            },
-            state: {
-
-            },
-            phone: {
-
-            },
-            receiveSmsFlag: true,
-            creditCard: {
-                cardNumber: {
-
+class Limits {
+    get userAccountDataLimits() {
+        return {
+            accountData: {
+                firstName: {
+                    length: {
+                        default: 6,
+                        min: 1,
+                        max: 20
+                    },
+                    pool: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890- "
                 },
-                expirationMonth: {
-
+                lastName: {
+                    length: {
+                        default: 6,
+                        min: 1,
+                        max: 20
+                    },
+                    pool: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890- ."
                 },
-                CVC: {
-
+                email: null,
+                password: {
+                    length: {
+                        min: 6
+                    },
+                    pool: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890~!@#$%^&*()_+=/\\,.<>|;:\'\""
                 }
             },
-            billingAddress: {
-                isSameAsDelivery: true,
-                billingName: {
-
-                },
-                billingAddressLine1: {
-
-                },
-                billingAddressLine2: {
-
-                },
-                billingAddressCity: {
-
-                },
-                billingAddressState: {
-
-                },
-                billingAddressZIP: {
-
+            mealPlanOptions: {
+                plan: [],
+                deliveryDay: [],
+                meals: [],
+            },
+            deliveryOptions: {
+                deliveryZIP: "",
+                deliveryState: "",
+                deliveryCity: "",
+                deliveryAddressLine1: "",
+                deliveryAddressLine2: "",
+                deliveryPhone: "",
+                isReceiveSms: false
+            },
+            paymentsOptions: {
+                payPalOptions: {},
+                creditCardOptions: {
+                    cardNumber: "",
+                    expirationMonth: "",
+                    CVC: ""
                 }
+            },
+            billingOptions: {
+                isBillingAddressSameAsDelivery: true,
+                deliveryZIP: "",
+                deliveryState: "",
+                deliveryCity: "",
+                deliveryAddressLine1: "",
+                deliveryAddressLine2: "",
+                deliveryPhone: "",
+                isReceiveSms: false
             }
         }
-};
+    }
+}
+
+export default new Limits();
