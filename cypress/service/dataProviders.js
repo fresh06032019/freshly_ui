@@ -1,4 +1,4 @@
-class AddressProvider {
+class DataProviders {
 
     getAddressesAvailableForOrders(validPostalCodes) {
         cy.fixture('addresses-us-all.json')
@@ -9,6 +9,14 @@ class AddressProvider {
             })
     };
 
+    getPostalCodesAvailableForOrders() {
+        return cy.fixture('postalCodesAvailableForOrdering.json')
+            .its('postalCodes')
+            .then(postalCodes => {
+                return postalCodes
+            })
+    }
+
 }
 
-export default new AddressProvider()
+export default new DataProviders()

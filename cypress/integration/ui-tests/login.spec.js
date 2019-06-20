@@ -1,6 +1,6 @@
 import loginPage from '../../page-objects/login';
 import forgotPasswordPage from '../../page-objects/forgotPassword';
-import addressesProvider from '../../service/addressProvider';
+import dataProvider from '../../service/dataProviders';
 
 describe('Login Page Functionality', () => {
 
@@ -21,22 +21,5 @@ describe('Login Page Functionality', () => {
         forgotPasswordPage.formTitle.should('be.visible');
         forgotPasswordPage.emailInputField.should('be.visible');
     });
-
-    describe('', () => {
-
-        beforeEach(() => {
-            cy.fixture('postalCodesAvailableForOrdering.json')
-                .its('postalCodes')
-                .as('postalCodes')
-        })
-
-        it('', () => {
-            cy.get('@postalCodes')
-                .then(postalCodes => {
-                    addressesProvider.getAddressesAvailableForOrders(postalCodes);
-                })
-        })
-
-    })
 
 });
