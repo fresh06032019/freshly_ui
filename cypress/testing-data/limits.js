@@ -1,4 +1,5 @@
 import Chance from 'chance';
+
 const chance = Chance();
 
 class Limits {
@@ -22,7 +23,26 @@ class Limits {
                     pool: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890- ."
                 },
                 email: {
-                    default: chance.email()
+                    default: chance.email(),
+                    valid: [],
+                    invalid: [
+                        {
+                            description: 'is empty',
+                            value: ''
+                        },
+                        {
+                            description: 'does NOT have @',
+                            value: ''
+                        },
+                        {
+                            description: 'does NOT have domain part',
+                            value: ''
+                        },
+                        {
+                            description: 'is plain address',
+                            value: ''
+                        }
+                    ]
                 },
                 password: {
                     default: chance.string(),
@@ -58,19 +78,19 @@ class Limits {
                         CVC: ""
                     },
                     {
-                        manufacturer: "MasterCard" ,
+                        manufacturer: "MasterCard",
                         cardNumber: "",
                         expirationMonth: "",
                         CVC: ""
                     },
                     {
-                        manufacturer: "American Express" ,
+                        manufacturer: "American Express",
                         cardNumber: "",
                         expirationMonth: "",
                         CVC: ""
                     },
                     {
-                        manufacturer: "DISCOVER" ,
+                        manufacturer: "DISCOVER",
                         cardNumber: "",
                         expirationMonth: "",
                         CVC: ""

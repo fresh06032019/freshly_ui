@@ -2,7 +2,7 @@ import Chance from 'chance';
 import limits from '../testing-data/limits'
 
 const chance = Chance();
-const accountLimits = limits.userAccountDataLimits.accountData
+const accountLimits = limits.userAccountDataLimits.accountData;
 
 class UserDataProvider {
 
@@ -35,6 +35,13 @@ class UserDataProvider {
             },
             billingOptions: {}
         }
+    }
+
+    getUserDataWithSpecificEmail(email, mealPlan, deliveryAddresses) {
+
+        let userData = getUserValidData(mealPlan, deliveryAddresses);
+        return userData.accountData.email = email
+
     }
 }
 
