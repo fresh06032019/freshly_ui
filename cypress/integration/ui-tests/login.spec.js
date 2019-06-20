@@ -1,5 +1,6 @@
 import loginPage from '../../page-objects/login';
-import forgotPasswordPage from '../../page-objects/forgotPassword'
+import forgotPasswordPage from '../../page-objects/forgotPassword';
+import addressesProvider from '../../service/addressProvider';
 
 describe('Login Page Functionality', () => {
 
@@ -7,18 +8,35 @@ describe('Login Page Functionality', () => {
         loginPage.open()
     });
 
-    it('should not allow to login with invalid credentials', () => {
+    xit('should not allow to login with invalid credentials', () => {
         loginPage.fillOutLoginForm({username: 'asd', password: '12315465465'});
         loginPage.submitLoginForm();
         loginPage.helpBlock.should('be.visible');
     });
 
-    it.only('should be able to open forgot password page', () => {
+    xit('should be able to open forgot password page', () => {
         loginPage.login({username: 'asd', password: '12315465465'});
         loginPage.helpBlock.should('be.visible');
         loginPage.openForgotPassword();
         forgotPasswordPage.formTitle.should('be.visible');
         forgotPasswordPage.emailInputField.should('be.visible');
+    });
+
+    describe('', () => {
+
+        beforeEach(() => {
+            cy.fixture('postalCodesAvailableForOrdering.json')
+                .its('postalCodes')
+                .as('postalCodes')
+        })
+
+        it('', () => {
+            cy.get('@postalCodes')
+                .then(postalCodes => {
+                    addressesProvider.getAddressesAvailableForOrders(postalCodes);
+                })
+        })
+
     })
 
 });
