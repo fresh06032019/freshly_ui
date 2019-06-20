@@ -1,25 +1,31 @@
+import Chance from 'chance';
+const chance = Chance();
+
 class Limits {
     get userAccountDataLimits() {
         return {
             accountData: {
                 firstName: {
+                    default: chance.first(),
                     length: {
-                        default: 6,
                         min: 1,
                         max: 20
                     },
                     pool: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890- "
                 },
                 lastName: {
+                    default: chance.last(),
                     length: {
-                        default: 6,
                         min: 1,
                         max: 20
                     },
                     pool: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890- ."
                 },
-                email: null,
+                email: {
+                    default: chance.email()
+                },
                 password: {
+                    default: chance.string(),
                     length: {
                         min: 6
                     },
@@ -37,7 +43,9 @@ class Limits {
                 deliveryCity: null,
                 deliveryAddressLine1: null,
                 deliveryAddressLine2: null,
-                deliveryPhone: null,
+                deliveryPhoneNumber: {
+                    default: chance.phone({country: "us"})
+                },
                 isReceiveSms: false
             },
             paymentsOptions: {

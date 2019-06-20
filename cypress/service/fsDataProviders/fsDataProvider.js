@@ -1,11 +1,11 @@
-class DataProviders {
+class FsDataProvider {
 
     getAddressesAvailableForOrders(validPostalCodes) {
-        cy.fixture('addresses-us-all.json')
+        return cy.fixture('addresses-us-all.json')
             .then(addressesData => {
-                console.log(addressesData.addresses.filter(address => {
+                return addressesData.addresses.filter(address => {
                     return validPostalCodes.includes(address.postalCode)
-                }))
+                })
             })
     };
 
@@ -19,4 +19,4 @@ class DataProviders {
 
 }
 
-export default new DataProviders()
+export default new FsDataProvider()

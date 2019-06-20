@@ -35,8 +35,8 @@ class LoginPage {
     }
 
     fillOutLoginForm(userData) {
-        this.emailInputField.type(`${userData.username}`);
-        this.passwordInputField.type(`${userData.password}`)
+        this.emailInputField.type(`${userData.accountData.email}`);
+        this.passwordInputField.type(`${userData.accountData.password}`)
     }
 
     submitLoginForm() {
