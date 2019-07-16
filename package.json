@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/fresh06032019/freshly_ui/issues"
   },
-  "homepage": "https://github.com/fresh06032019/freshly_ui#readme"
+  "homepage": "https://github.com/fresh06032019/freshly_ui#readme",
+  "dependencies": {
+    "cypress": "^3.3.1"
+  },
+  "devDependencies": {
+    "chance": "^1.0.18"
+  }
 }
